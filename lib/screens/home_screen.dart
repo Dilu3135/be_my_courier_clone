@@ -6,10 +6,16 @@ import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
+  
+  // ===========================================================================
+  // Build
+  // ===========================================================================
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // =======================================================================
+      // App bar
+      // =======================================================================
       appBar: AppBar(
         title: RichText(
           text: const TextSpan(
@@ -32,22 +38,21 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
+      // =======================================================================
+      // Body
+      // =======================================================================
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Sign In',
-              style: TextStyle(
-                color: Color(0xffF5A825),
-                fontSize: 29,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
+            AppTextStyles.kFont12ptAmber,
             const SizedBox(
               height: 5,
             ),
+            // =================================================================
+            // Don't have an account text
+            // =================================================================
             RichText(
               text: const TextSpan(
                 text: "Don't have an account?",
