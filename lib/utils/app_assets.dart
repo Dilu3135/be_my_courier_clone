@@ -16,4 +16,8 @@ class AppAssets {
   // Facebook Icon
   // ===========================================================================
   static const String facebooklIcon = 'assets/icons/facebook.png';
+  // ===========================================================================
+  // Finger Print Icon
+  // ===========================================================================
+  static const String fingerPrintIcon = 'assets/icons/finger_icon.png';
 }

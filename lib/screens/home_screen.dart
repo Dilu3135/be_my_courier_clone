@@ -55,7 +55,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 50,
+              height: 40,
             ),
             const Text(
               'Email Adress',
@@ -171,30 +171,26 @@ class HomeScreen extends StatelessWidget {
               leadingTextStyle: const TextStyle(color: Color(0xffFFFFFF)),
             ),
             const SizedBox(
-              height: 40,
+              height: 10,
             ),
-            Center(
-              child: RichText(
-                text: const TextSpan(
-                  text: "Login with ",
-                  style: TextStyle(
-                    color: Color(0xff757576),
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                  ),
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: 'Touch ID',
-                      style: TextStyle(
-                        color: Color(0xff2C2A26),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ],
-                ),
+            const Center(
+              
+                child: AppRichText(
+              
+              leadingText: "Login with ",
+              trailingText: 'Touch ID',
+              
+              leadingTextStyle: TextStyle(
+                color: Color(0xff757576),
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
               ),
-            ),
+              trailingTextStyle: TextStyle(
+                color: Color(0xff2C2A26),
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+              ),
+            )),
           ],
         ),
       ),
