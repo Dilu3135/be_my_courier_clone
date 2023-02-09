@@ -3,8 +3,17 @@ class AppAssets {
   // Splash Screen Assets
   // ===========================================================================
   static const String splashScreenImage = 'assets/launch_image.png';
+
+// =============================================================================
+// Gmail Icon
+// =============================================================================
+  static const String gmailIcon = 'assets/icons/gmail_icon.png';
+// =============================================================================
+// Apple Icon
+// =============================================================================
+  static const String appleIcon = 'assets/icons/apple_icon.png';
   // ===========================================================================
-  // Signup Screen Assets
+  // Facebook Icon
   // ===========================================================================
-  static const String googleIcon = 'assets/google.png';
+  static const String facebooklIcon = 'assets/icons/facebook.png';
 }

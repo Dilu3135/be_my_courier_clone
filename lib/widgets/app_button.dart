@@ -11,6 +11,7 @@ class AppGradientButton extends StatelessWidget {
     this.verticalPadding = 4.0,
     this.assetImage,
     this.color,
+    required this.leadingTextStyle,
   }) : super(key: key);
 
   final LinearGradient? gradient;
@@ -21,11 +22,14 @@ class AppGradientButton extends StatelessWidget {
   final double verticalPadding;
   final String? assetImage;
   final Color? color;
+  final TextStyle leadingTextStyle;
 
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: BoxConstraints(minWidth: width,),
+      constraints: BoxConstraints(
+        minWidth: width,
+      ),
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
@@ -34,22 +38,21 @@ class AppGradientButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30))),
         child: Padding(
-          padding:  EdgeInsets.symmetric(vertical: verticalPadding),
+          padding: EdgeInsets.symmetric(vertical: verticalPadding),
           child: Center(
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
+                DecoratedBox(
+                  decoration: BoxDecoration(gradient: gradient),
+                ),
                 if (assetImage != null) Image.asset(assetImage!),
                 const SizedBox(
                   width: 5,
                 ),
                 Text(
                   buttonText,
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontFamily: 'Poppins-Medium.ttf',
-                      fontWeight: FontWeight.w700,
-                      color: color),
+                  style: leadingTextStyle,
                 ),
               ],
             ),

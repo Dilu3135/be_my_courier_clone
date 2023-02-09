@@ -2,11 +2,12 @@ import 'package:be_my_courier/utils/app_assets.dart';
 import 'package:be_my_courier/utils/app_text_styles.dart';
 import 'package:be_my_courier/widgets/app_button.dart';
 import 'package:be_my_courier/widgets/app_text_field.dart';
+import 'package:be_my_courier/widgets/rich_text.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-  
+
   // ===========================================================================
   // Build
   // ===========================================================================
@@ -17,30 +18,19 @@ class HomeScreen extends StatelessWidget {
       // App bar
       // =======================================================================
       appBar: AppBar(
-        title: RichText(
-          text: const TextSpan(
-            text: 'Welcome to ',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-              color: Colors.black,
-            ),
-            children: <TextSpan>[
-              TextSpan(
-                text: 'BemyCourier',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.blue,
-                ),
+          title: const AppRichText(
+              leadingText: 'Welcome to ',
+              trailingText: 'BemyCourier',
+              leadingTextStyle: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: Colors.black,
               ),
-            ],
-          ),
-        ),
-      ),
-      // =======================================================================
-      // Body
-      // =======================================================================
+              trailingTextStyle: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: Colors.blue,
+              ))),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
@@ -50,27 +40,18 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(
               height: 5,
             ),
-            // =================================================================
-            // Don't have an account text
-            // =================================================================
-            RichText(
-              text: const TextSpan(
-                text: "Don't have an account?",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12,
-                ),
-                children: <TextSpan>[
-                  TextSpan(
-                    text: 'Sign up',
-                    style: TextStyle(
-                      color: Color(0xffDE0A06),
-                      fontWeight: FontWeight.w400,
-                      fontSize: 12,
-                    ),
-                  ),
-                ],
+            const AppRichText(
+              leadingText: "Don't have an account? ",
+              trailingText: 'Sign up',
+              leadingTextStyle: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+              ),
+              trailingTextStyle: TextStyle(
+                color: Color(0xffDE0A06),
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
               ),
             ),
             const SizedBox(
@@ -128,7 +109,7 @@ class HomeScreen extends StatelessWidget {
             ),
             Center(
               child: AppGradientButton(
-                width: 327,
+                // width: 327,
                 gradient: const LinearGradient(colors: [
                   Color(0xffF5A825),
                   Color(0xffF6CE50),
@@ -136,6 +117,7 @@ class HomeScreen extends StatelessWidget {
                 buttonText: 'Sign In',
                 onPressed: () {},
                 verticalPadding: 18,
+                leadingTextStyle: const TextStyle(color: Colors.black),
               ),
             ),
             const SizedBox(
@@ -155,7 +137,8 @@ class HomeScreen extends StatelessWidget {
                     buttonText: 'Facebook',
                     backgroundColor: const Color(0xff4460A0),
                     verticalPadding: 16,
-                    assetImage: 'assets/Facebook.png',
+                    assetImage: AppAssets.facebooklIcon,
+                    leadingTextStyle: const TextStyle(color: Color(0xffFFFFFF)),
                   ),
                 ),
                 const SizedBox(
@@ -167,7 +150,10 @@ class HomeScreen extends StatelessWidget {
                     buttonText: 'Google',
                     verticalPadding: 16.0,
                     backgroundColor: const Color(0xffD9372B),
-                    assetImage: AppAssets.googleIcon,
+                    assetImage: AppAssets.gmailIcon,
+                    leadingTextStyle: const TextStyle(
+                      color: Color(0xfffFFFFF),
+                    ),
                   ),
                 ),
               ],
@@ -181,7 +167,8 @@ class HomeScreen extends StatelessWidget {
               backgroundColor: const Color(0xff000000),
               color: const Color(0xffFFFFFF),
               verticalPadding: 16,
-              assetImage: 'assets/appleicon.png',
+              assetImage: AppAssets.appleIcon,
+              leadingTextStyle: const TextStyle(color: Color(0xffFFFFFF)),
             ),
             const SizedBox(
               height: 40,
