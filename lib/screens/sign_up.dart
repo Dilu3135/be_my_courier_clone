@@ -161,9 +161,11 @@ class SignUp extends StatelessWidget {
                     child: AppGradientButton(
                       onPressed: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const AddressScreen()));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const AddressScreen(),
+                          ),
+                        );
                       },
                       gradient: const LinearGradient(
                         colors: [

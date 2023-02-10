@@ -39,6 +39,14 @@ class SignIn extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
+          const Align(
+            alignment: Alignment.bottomCenter,
+            child: Image(
+              image: AssetImage(AppAssets.bottomLeftDesign),
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: SingleChildScrollView(
@@ -224,14 +232,6 @@ class SignIn extends StatelessWidget {
               ),
             ),
           ),
-          const Align(
-            alignment: Alignment.bottomCenter,
-            child: Image(
-              image: AssetImage(AppAssets.bottomLeftDesign),
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
-          )
         ],
       ),
     );

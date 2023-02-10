@@ -1,4 +1,5 @@
 import 'package:be_my_courier/utils/app_assets.dart';
+import 'package:be_my_courier/widgets/app_gradient_button.dart';
 import 'package:be_my_courier/widgets/app_text_field.dart';
 import 'package:be_my_courier/widgets/rich_text.dart';
 import 'package:flutter/material.dart';
@@ -44,11 +45,19 @@ class AddressScreen extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: SingleChildScrollView(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(
                     height: 20,
                   ),
-                  const Text('Street Address'),
+                  const Text(
+                    'Street Address',
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black,
+                        fontFamily: 'Poppins-Medium.ttf'),
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
@@ -67,16 +76,74 @@ class AddressScreen extends StatelessWidget {
                             isPasword: false,
                             keyboardType: TextInputType.text),
                       ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Expanded(
+                        child: AppTextField(
+                            hinttext: 'State/Province',
+                            isPasword: false,
+                            keyboardType: TextInputType.text),
+                      ),
                     ],
                   ),
                   const SizedBox(
-                    width: 20,
+                    height: 20,
                   ),
-                  const Expanded(
-                    child: AppTextField(
-                        hinttext: 'State/Province',
-                        isPasword: false,
-                        keyboardType: TextInputType.text),
+                  Row(
+                    children: const [
+                      Expanded(
+                        child: AppTextField(
+                            hinttext: 'Zip Code',
+                            isPasword: false,
+                            keyboardType: TextInputType.text),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Expanded(
+                        child: AppTextField(
+                            hinttext: 'Country',
+                            isPasword: false,
+                            keyboardType: TextInputType.text),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    'Phone Number',
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black,
+                        fontFamily: 'Poppins-Medium.ttf'),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const AppTextField(
+                      hinttext: 'Phone Number',
+                      isPasword: false,
+                      keyboardType: TextInputType.text),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  AppGradientButton(
+                    onPressed: () {},
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color(0xffF5A825),
+                        Color(0XFFF6CE50),
+                      ],
+                    ),
+                    leadingTextStyle: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'Poppins-Medium.ttf  '),
+                    leadingtext: 'Sign Up',
                   ),
                 ],
               ),
