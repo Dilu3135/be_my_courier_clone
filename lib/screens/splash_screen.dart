@@ -1,4 +1,5 @@
 import 'package:be_my_courier/screens/home_screen.dart';
+import 'package:be_my_courier/screens/sign_in.dart';
 import 'package:be_my_courier/utils/app_assets.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 1), () {
       Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => const HomeScreen()),
+          MaterialPageRoute(builder: (context) => const SignIn()),
           (route) => false);
     });
     super.initState();

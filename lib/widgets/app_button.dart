@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AppGradientButton extends StatelessWidget {
-  const AppGradientButton({
+class AppSimpleButton extends StatelessWidget {
+  const AppSimpleButton({
     Key? key,
     this.gradient,
     required this.buttonText,

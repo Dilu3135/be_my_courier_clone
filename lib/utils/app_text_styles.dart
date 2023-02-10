@@ -15,4 +15,12 @@ class AppTextStyles {
       fontWeight: FontWeight.w700,
     ),
   );
+  static Text kFont12ptAmberleading = const Text(
+    'Sign Up',
+    style: TextStyle(
+      color: Color(0xffF5A825),
+      fontSize: 29,
+      fontWeight: FontWeight.w700,
+    ),
+  );
 }
