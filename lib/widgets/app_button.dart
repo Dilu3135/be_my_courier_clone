@@ -33,19 +33,18 @@ class AppGradientButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-            backgroundColor: backgroundColor,
-            elevation: 2,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30))),
+          backgroundColor: backgroundColor,
+          elevation: 2,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+        ),
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: verticalPadding),
           child: Center(
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                DecoratedBox(
-                  decoration: BoxDecoration(gradient: gradient),
-                ),
                 if (assetImage != null) Image.asset(assetImage!),
                 const SizedBox(
                   width: 5,
