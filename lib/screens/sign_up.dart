@@ -1,9 +1,8 @@
-
+import 'package:be_my_courier/core/utils/app_colors.dart';
 import 'package:be_my_courier/screens/user_address_screen.dart';
 import 'package:be_my_courier/core/utils/app_assets.dart';
 import 'package:be_my_courier/core/utils/app_text_styles.dart';
 import 'package:be_my_courier/widgets/account_confirmation.dart';
-import 'package:be_my_courier/widgets/app_button.dart';
 import 'package:be_my_courier/widgets/app_gradient_button.dart';
 import 'package:be_my_courier/widgets/app_text_field.dart';
 
@@ -11,6 +10,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/app_bar.dart';
 import '../widgets/login_with_biometric.dart';
+import '../widgets/social_login.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -31,7 +31,9 @@ class SignUpScreen extends StatelessWidget {
         preferredSize: Size.fromHeight(kToolbarHeight),
         child: AuthenticationAppBar(),
       ),
-
+      // =======================================================================
+      // Body
+      // =======================================================================
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -110,17 +112,12 @@ class SignUpScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, UserAddressScreen.route);
                       },
-                      gradient: const LinearGradient(
-                        colors: [
-                          Color(0xffF5A825),
-                          Color(0XFFF6CE50),
-                        ],
-                      ),
+                      gradient: AppColors.appGradient,
                       leadingTextStyle: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          fontFamily: 'Poppins-Medium.ttf  '),
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                      ),
                       leadingtext: 'NEXT',
                     ),
                   ),
@@ -133,51 +130,7 @@ class SignUpScreen extends StatelessWidget {
                   const SizedBox(
                     height: 7,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: AppSimpleButton(
-                          onPressed: () {},
-                          buttonText: 'Facebook',
-                          backgroundColor: const Color(0xff4460A0),
-                          verticalPadding: 15,
-                          assetImage: AppAssets.facebooklIcon,
-                          leadingTextStyle:
-                              const TextStyle(color: Color(0xffFFFFFF)),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      Expanded(
-                        child: AppSimpleButton(
-                          onPressed: () {},
-                          buttonText: 'Google',
-                          verticalPadding: 15.0,
-                          backgroundColor: const Color(0xffD9372B),
-                          assetImage: AppAssets.gmailIcon,
-                          leadingTextStyle: const TextStyle(
-                            color: Color(0xfffFFFFF),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  AppSimpleButton(
-                    onPressed: () {},
-                    buttonText: 'Sign up with Apple',
-                    backgroundColor: const Color(0xff000000),
-                    color: const Color(0xffFFFFFF),
-                    verticalPadding: 12,
-                    assetImage: AppAssets.appleIcon,
-                    leadingTextStyle: const TextStyle(color: Color(0xffFFFFFF)),
-                  ),
-                  const SizedBox(
-                    height: 25,
-                  ),
+                  const SocialLoginColumn(),
                   const Center(
                     child: LoginWithBiometric(),
                   ),

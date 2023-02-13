@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppTextStyles {
-
 // =============================================================================
 // this is use in both screen Signin and SignUp
 // =============================================================================
@@ -11,7 +10,7 @@ class AppTextStyles {
     fontSize: 12,
     fontWeight: FontWeight.w400,
   );
-//  Uper Text 
+//  Uper Text
   static Text kFont12ptAmber = const Text(
     'Sign In',
     style: TextStyle(
@@ -20,7 +19,6 @@ class AppTextStyles {
       fontWeight: FontWeight.w700,
     ),
   );
-
   // uper text
   static Text kFont12ptAmberleading = const Text(
     'Sign Up',
@@ -84,7 +82,7 @@ class AppTextStyles {
       fontWeight: FontWeight.w700,
     ),
   );
-    // this is use in useraddress Screen
+  // this is use in useraddress Screen
   static Text kAddress = const Text(
     'Street Address',
     style: TextStyle(
@@ -106,8 +104,8 @@ class AppTextStyles {
   // this is use in Appgradient Button
   // ===========================================================================
   static TextStyle kAppButton = const TextStyle(
-      color: Colors.black,
-      fontSize: 16,
-      fontWeight: FontWeight.w700,
-      fontFamily: 'Poppins-Medium.ttf  ');
+    color: Colors.black,
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+  );
 }

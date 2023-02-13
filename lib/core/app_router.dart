@@ -7,7 +7,13 @@ import '../screens/user_address_screen.dart';
 
 class AppRouter {
   static final Map<String, Widget Function(BuildContext)> myRoutes = {
+// =============================================================================
+// Splash Screen Routes
+// =============================================================================
     SplashScreen.route: (context) => const SplashScreen(),
+    // =========================================================================
+    // Authentication Routes
+    // =========================================================================
     SignInScreen.route: (context) => const SignInScreen(),
     SignUpScreen.route: (context) => const SignUpScreen(),
     UserAddressScreen.route: (context) => const UserAddressScreen(),

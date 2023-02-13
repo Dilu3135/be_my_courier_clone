@@ -3,16 +3,19 @@ import 'package:be_my_courier/screens/sign_up.dart';
 import 'package:be_my_courier/core/utils/app_assets.dart';
 import 'package:be_my_courier/core/utils/app_text_styles.dart';
 import 'package:be_my_courier/widgets/account_confirmation.dart';
-import 'package:be_my_courier/widgets/app_button.dart';
 import 'package:be_my_courier/widgets/app_gradient_button.dart';
 import 'package:be_my_courier/widgets/app_text_field.dart';
+import 'package:be_my_courier/widgets/social_login.dart';
 import 'package:flutter/material.dart';
 import '../widgets/app_bar.dart';
 import '../widgets/login_with_biometric.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
-
+ 
+  // ===========================================================================
+  // Route
+  // ===========================================================================
   static const String route = '/signin';
 
   // ===========================================================================
@@ -46,17 +49,23 @@ class SignInScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // the uper text of sign In
+                  // ===========================================================
+                  // Heading
+                  // ===========================================================
                   AppTextStyles.kFont12ptAmber,
                   const SizedBox(
                     height: 5,
                   ),
-                  //complete widget of dont sign in
+                  // ===========================================================
+                  // Don't have an account text
+                  // ===========================================================
                   const AccountComfirmation(),
                   const SizedBox(
                     height: 40,
                   ),
-                  //title email
+                  // ===========================================================
+                  // Email
+                  // ===========================================================
                   AppTextStyles.kTitleEmail,
                   const SizedBox(
                     height: 10,
@@ -68,6 +77,9 @@ class SignInScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
+                  // ===========================================================
+                  // Password
+                  // ===========================================================
                   AppTextStyles.kTitlePassword,
                   const SizedBox(
                     height: 10,
@@ -87,14 +99,12 @@ class SignInScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
+                  // ===========================================================
+                  // Sign in Button
+                  // ===========================================================
                   Center(
                     child: AppGradientButton(
-                      gradient: const LinearGradient(
-                        colors: [
-                          Color(0xffF5A825),
-                          Color(0XFFF6CE50),
-                        ],
-                      ),
+                      gradient: AppColors.appGradient,
                       onPressed: () {
                         Navigator.pushNamed(context, SignUpScreen.route);
                       },
@@ -109,6 +119,9 @@ class SignInScreen extends StatelessWidget {
                   const SizedBox(
                     height: 30,
                   ),
+                  // ===========================================================
+                  // Forget Password
+                  // ===========================================================
                   Center(
                     // Forget title
                     child: AppTextStyles.kForgetTitle,
@@ -116,53 +129,14 @@ class SignInScreen extends StatelessWidget {
                   const SizedBox(
                     height: 7,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: AppSimpleButton(
-                          onPressed: () {},
-                          buttonText: 'Facebook',
-                          backgroundColor: AppColors.kblueFacebook,
-                          verticalPadding: 15,
-                          assetImage: AppAssets.facebooklIcon,
-                          leadingTextStyle:
-                              const TextStyle(color: Color(0xffFFFFFF)),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      Expanded(
-                        child: AppSimpleButton(
-                          onPressed: () {},
-                          buttonText: 'Google',
-                          verticalPadding: 15.0,
-                          backgroundColor: AppColors.kRedColor,
-                          assetImage: AppAssets.gmailIcon,
-                          leadingTextStyle: const TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  AppSimpleButton(
-                    onPressed: () {},
-                    buttonText: 'Sign in with Apple',
-                    backgroundColor: AppColors.kBlackColor,
-                    color: Colors.white,
-                    verticalPadding: 12,
-                    assetImage: AppAssets.appleIcon,
-                    leadingTextStyle: const TextStyle(color: Colors.white),
-                  ),
-                  const SizedBox(
-                    height: 25,
-                  ),
+                  // ===========================================================
+                  // Social Logins
+                  // ===========================================================
+                  const SocialLoginColumn(),
+                  // ===========================================================
+                  // Biometric Login
+                  // ===========================================================
                   const Center(
-                    // login with biometric 
                     child: LoginWithBiometric(),
                   ),
                 ],

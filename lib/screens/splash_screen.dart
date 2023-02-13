@@ -18,10 +18,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 1), () {
-      // Navigator.pushAndRemoveUntil(
-      //     context,
-      //     MaterialPageRoute(builder: (context) => const SignInScreen()),
-      //     (route) => false);
       Navigator.pushNamedAndRemoveUntil(
         context,
         SignInScreen.route,

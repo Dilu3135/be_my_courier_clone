@@ -10,6 +10,13 @@ class AppColors {
   // facebook button
   static const Color kblueFacebook = Color(0xff4460A0);
 
+  static const LinearGradient appGradient = LinearGradient(
+    colors: [
+      Color(0xffF5A825),
+      Color(0XFFF6CE50),
+    ],
+  );
+
   static final MaterialColor primarySwatch = MaterialColor(0XFFF5A825, {
     50: const Color(0XFFF5A825).withOpacity(0.1),
     100: const Color(0XFFF5A825).withOpacity(0.2),

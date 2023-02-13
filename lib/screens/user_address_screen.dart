@@ -1,4 +1,5 @@
 import 'package:be_my_courier/core/utils/app_assets.dart';
+import 'package:be_my_courier/core/utils/app_colors.dart';
 import 'package:be_my_courier/core/utils/app_text_styles.dart';
 import 'package:be_my_courier/widgets/app_gradient_button.dart';
 import 'package:be_my_courier/widgets/app_text_field.dart';
@@ -21,7 +22,6 @@ class UserAddressScreen extends StatelessWidget {
         preferredSize: Size.fromHeight(kToolbarHeight),
         child: AuthenticationAppBar(),
       ),
-
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -110,12 +110,7 @@ class UserAddressScreen extends StatelessWidget {
                   ),
                   AppGradientButton(
                     onPressed: () {},
-                    gradient: const LinearGradient(
-                      colors: [
-                        Color(0xffF5A825),
-                        Color(0XFFF6CE50),
-                      ],
-                    ),
+                    gradient: AppColors.appGradient,
                     leadingTextStyle: AppTextStyles.kAppButton,
                     leadingtext: 'Sign Up',
                   ),
