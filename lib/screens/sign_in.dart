@@ -7,7 +7,6 @@ import 'package:be_my_courier/widgets/app_button.dart';
 import 'package:be_my_courier/widgets/app_gradient_button.dart';
 import 'package:be_my_courier/widgets/app_text_field.dart';
 import 'package:flutter/material.dart';
-
 import '../widgets/app_bar.dart';
 import '../widgets/login_with_biometric.dart';
 
@@ -47,14 +46,17 @@ class SignInScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // the uper text of sign In
                   AppTextStyles.kFont12ptAmber,
                   const SizedBox(
                     height: 5,
                   ),
+                  //complete widget of dont sign in
                   const AccountComfirmation(),
                   const SizedBox(
                     height: 40,
                   ),
+                  //title email
                   AppTextStyles.kTitleEmail,
                   const SizedBox(
                     height: 10,
@@ -108,6 +110,7 @@ class SignInScreen extends StatelessWidget {
                     height: 30,
                   ),
                   Center(
+                    // Forget title
                     child: AppTextStyles.kForgetTitle,
                   ),
                   const SizedBox(
@@ -159,6 +162,7 @@ class SignInScreen extends StatelessWidget {
                     height: 25,
                   ),
                   const Center(
+                    // login with biometric 
                     child: LoginWithBiometric(),
                   ),
                 ],

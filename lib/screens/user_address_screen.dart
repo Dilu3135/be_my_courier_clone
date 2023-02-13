@@ -112,16 +112,11 @@ class UserAddressScreen extends StatelessWidget {
                     onPressed: () {},
                     gradient: const LinearGradient(
                       colors: [
-                        
                         Color(0xffF5A825),
                         Color(0XFFF6CE50),
                       ],
                     ),
-                    leadingTextStyle: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        fontFamily: 'Poppins-Medium.ttf  '),
+                    leadingTextStyle: AppTextStyles.kAppButton,
                     leadingtext: 'Sign Up',
                   ),
                 ],

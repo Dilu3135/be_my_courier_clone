@@ -19,4 +19,5 @@ class AppAssets {
 // Yellow bottom pic
 // =============================================================================  
   static const String bottomLeftDesign = 'assets/images/yellow_design_bottom.png';
+  
 }

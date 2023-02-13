@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
+  // backgroud color
   static const Color backgroundColor = Color(0XFFE5E5E5);
+  // google button
   static const Color kRedColor = Color(0xffDE0A06);
+  // black color
   static const Color kBlackColor = Color(0xff000000);
+  // facebook button
   static const Color kblueFacebook = Color(0xff4460A0);
 
   static final MaterialColor primarySwatch = MaterialColor(0XFFF5A825, {
