@@ -72,4 +72,20 @@ class AppTextStyles {
       fontWeight: FontWeight.w700,
     ),
   );
+  static Text kAddress = const Text(
+    'Street Address',
+    style: TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.w700,
+        color: Colors.black,
+        fontFamily: 'Poppins-Medium.ttf'),
+  );
+  static Text kPhoneNum = const Text(
+    'Phone Number',
+    style: TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.w700,
+        color: Colors.black,
+        fontFamily: 'Poppins-Medium.ttf'),
+  );
 }

@@ -1,9 +1,8 @@
 import 'package:be_my_courier/core/utils/app_assets.dart';
+import 'package:be_my_courier/core/utils/app_text_styles.dart';
 import 'package:be_my_courier/widgets/app_gradient_button.dart';
 import 'package:be_my_courier/widgets/app_text_field.dart';
-
 import 'package:flutter/material.dart';
-
 import '../widgets/app_bar.dart';
 
 class UserAddressScreen extends StatelessWidget {
@@ -43,14 +42,7 @@ class UserAddressScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  const Text(
-                    'Street Address',
-                    style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.black,
-                        fontFamily: 'Poppins-Medium.ttf'),
-                  ),
+                  AppTextStyles.kAddress,
                   const SizedBox(
                     height: 10,
                   ),
@@ -105,14 +97,7 @@ class UserAddressScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  const Text(
-                    'Phone Number',
-                    style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.black,
-                        fontFamily: 'Poppins-Medium.ttf'),
-                  ),
+                  AppTextStyles.kPhoneNum,
                   const SizedBox(
                     height: 10,
                   ),
@@ -127,6 +112,7 @@ class UserAddressScreen extends StatelessWidget {
                     onPressed: () {},
                     gradient: const LinearGradient(
                       colors: [
+                        
                         Color(0xffF5A825),
                         Color(0XFFF6CE50),
                       ],
