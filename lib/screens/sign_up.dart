@@ -182,11 +182,11 @@ class SignUp extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 30,
                   ),
                   const Center(
                     child: Text(
-                      'or Login with',
+                      'or Sign up with',
                       style: AppTextStyles.kFont12ptGrey,
                     ),
                   ),

@@ -86,9 +86,9 @@ class SignIn extends StatelessWidget {
                     height: 10,
                   ),
                   const AppTextField(
-                      hinttext: 'Email',
-                      isPasword: false,
-                      keyboardType: TextInputType.emailAddress),
+                    hinttext: 'Email',
+                    keyboardType: TextInputType.emailAddress,
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
@@ -104,9 +104,10 @@ class SignIn extends StatelessWidget {
                     height: 10,
                   ),
                   const AppTextField(
-                      hinttext: 'Password',
-                      isPasword: true,
-                      keyboardType: TextInputType.visiblePassword),
+                    hinttext: 'Password',
+                    isPasword: true,
+                    keyboardType: TextInputType.visiblePassword,
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
@@ -148,7 +149,7 @@ class SignIn extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 30,
                   ),
                   const Center(
                     child: Text(
@@ -210,6 +211,9 @@ class SignIn extends StatelessWidget {
                       children: [
                         Image.asset(
                           AppAssets.fingerPrintIcon,
+                        ),
+                        const SizedBox(
+                          width: 10,
                         ),
                         const AppRichText(
                           leadingText: "Login with ",

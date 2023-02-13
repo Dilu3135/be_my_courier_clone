@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class AppTextField extends StatelessWidget {
+class AppTextField extends StatefulWidget {
   const AppTextField({
     Key? key,
     required this.hinttext,
     this.title,
-    required this.isPasword,
+    this.isPasword = false,
     required this.keyboardType,
   }) : super(key: key);
 
@@ -15,21 +15,33 @@ class AppTextField extends StatelessWidget {
   final TextInputType keyboardType;
 
   @override
+  State<AppTextField> createState() => _AppTextFieldState();
+}
+
+class _AppTextFieldState extends State<AppTextField> {
+  bool obscureText = true;
+  toggleShowPassword() {
+    setState(() {
+      obscureText = !obscureText;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        title != null
+        widget.title != null
             ? Padding(
                 padding: const EdgeInsets.only(bottom: 10),
                 child: Text(
-                  title!,
+                  widget.title!,
                 ),
               )
             : const SizedBox.shrink(),
         TextField(
-          obscureText: isPasword,
-          keyboardType: keyboardType,
+          obscureText: widget.isPasword ? obscureText : false,
+          keyboardType: widget.keyboardType,
           style: const TextStyle(
               color: Colors.black, fontSize: 14, fontWeight: FontWeight.w700),
           decoration: InputDecoration(
@@ -40,10 +52,16 @@ class AppTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(25.0),
             ),
             contentPadding: const EdgeInsets.symmetric(
-              horizontal: 6,
+              horizontal: 20,
             ),
-            hintText: hinttext,
+            hintText: widget.hinttext,
             hintStyle: const TextStyle(color: Colors.black38),
+            suffixIcon: widget.isPasword
+                ? IconButton(
+                    onPressed: toggleShowPassword,
+                    icon: const Icon(Icons.visibility),
+                  )
+                : null,
           ),
         ),
       ],
