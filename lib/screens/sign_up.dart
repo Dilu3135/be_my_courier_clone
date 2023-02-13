@@ -1,14 +1,16 @@
 import 'package:be_my_courier/screens/user_address_screen.dart';
-import 'package:be_my_courier/utils/app_assets.dart';
-import 'package:be_my_courier/utils/app_text_styles.dart';
+import 'package:be_my_courier/core/utils/app_assets.dart';
+import 'package:be_my_courier/core/utils/app_text_styles.dart';
 import 'package:be_my_courier/widgets/app_button.dart';
 import 'package:be_my_courier/widgets/app_gradient_button.dart';
 import 'package:be_my_courier/widgets/app_text_field.dart';
 import 'package:be_my_courier/widgets/rich_text.dart';
 import 'package:flutter/material.dart';
 
-class SignUp extends StatelessWidget {
-  const SignUp({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
+
+  static const String route = '/signup';
 
   // ===========================================================================
   // Build
@@ -160,12 +162,7 @@ class SignUp extends StatelessWidget {
                   Center(
                     child: AppGradientButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const AddressScreen(),
-                          ),
-                        );
+                        Navigator.pushNamed(context, UserAddressScreen.route);
                       },
                       gradient: const LinearGradient(
                         colors: [

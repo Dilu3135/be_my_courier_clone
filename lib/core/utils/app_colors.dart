@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color backgroundColor = Color(0XFFE5E5E5);
+  static const Color kRedColor = Color(0xffDE0A06);
 
   static final MaterialColor primarySwatch = MaterialColor(0XFFF5A825, {
     50: const Color(0XFFF5A825).withOpacity(0.1),

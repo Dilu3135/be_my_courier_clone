@@ -2,7 +2,7 @@ class AppAssets {
   // ===========================================================================
   // Splash Screen Assets
   // ===========================================================================
-  static const String splashScreenImage = 'assets/launch_image.png';
+  static const String splashScreenImage = 'assets/images/launch_image.png';
 
 // =============================================================================
 // Auth Screens Assets

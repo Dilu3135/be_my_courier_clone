@@ -1,5 +1,6 @@
+import 'package:be_my_courier/core/app_router.dart';
+import 'package:be_my_courier/core/app_theme.dart';
 import 'package:be_my_courier/screens/splash_screen.dart';
-import 'package:be_my_courier/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,16 +15,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        fontFamily: 'Poppins',
-        primarySwatch: AppColors.primarySwatch,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: AppColors.backgroundColor,
-          elevation: 0,
-        ),
-        scaffoldBackgroundColor: AppColors.backgroundColor,
-      ),
-      home: const SplashScreen(),
+      theme: AppTheme.myTheme,
+      routes: AppRouter.myRoutes,
+      initialRoute: SplashScreen.route,
     );
   }
 }

@@ -1,11 +1,13 @@
-import 'package:be_my_courier/utils/app_assets.dart';
+import 'package:be_my_courier/core/utils/app_assets.dart';
 import 'package:be_my_courier/widgets/app_gradient_button.dart';
 import 'package:be_my_courier/widgets/app_text_field.dart';
 import 'package:be_my_courier/widgets/rich_text.dart';
 import 'package:flutter/material.dart';
 
-class AddressScreen extends StatelessWidget {
-  const AddressScreen({super.key});
+class UserAddressScreen extends StatelessWidget {
+  const UserAddressScreen({super.key});
+
+  static const String route = '/user-address';
 
   @override
   Widget build(BuildContext context) {

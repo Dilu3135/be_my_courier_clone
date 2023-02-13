@@ -1,14 +1,19 @@
+import 'package:be_my_courier/core/utils/app_colors.dart';
 import 'package:be_my_courier/screens/sign_up.dart';
-import 'package:be_my_courier/utils/app_assets.dart';
-import 'package:be_my_courier/utils/app_text_styles.dart';
+import 'package:be_my_courier/core/utils/app_assets.dart';
+import 'package:be_my_courier/core/utils/app_text_styles.dart';
 import 'package:be_my_courier/widgets/app_button.dart';
 import 'package:be_my_courier/widgets/app_gradient_button.dart';
 import 'package:be_my_courier/widgets/app_text_field.dart';
 import 'package:be_my_courier/widgets/rich_text.dart';
 import 'package:flutter/material.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({super.key});
+import '../widgets/login_with_biometric.dart';
+
+class SignInScreen extends StatelessWidget {
+  const SignInScreen({super.key});
+
+  static const String route = '/signin';
 
   // ===========================================================================
   // Build
@@ -66,7 +71,7 @@ class SignIn extends StatelessWidget {
                       fontSize: 12,
                     ),
                     trailingTextStyle: TextStyle(
-                      color: Color(0xffDE0A06),
+                      color: AppColors.kRedColor,
                       fontWeight: FontWeight.w400,
                       fontSize: 12,
                     ),
@@ -75,7 +80,7 @@ class SignIn extends StatelessWidget {
                     height: 40,
                   ),
                   const Text(
-                    'Email Adress',
+                    'Email Address',
                     style: TextStyle(
                       color: Color(0xff2C2C2C),
                       fontSize: 12,
@@ -134,17 +139,13 @@ class SignIn extends StatelessWidget {
                         ],
                       ),
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            (MaterialPageRoute(
-                              builder: (context) => const SignUp(),
-                            )));
+                        Navigator.pushNamed(context, SignUpScreen.route);
                       },
                       leadingTextStyle: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          fontFamily: 'Poppins-Medium.ttf'),
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                      ),
                       leadingtext: 'SIGN IN',
                     ),
                   ),
@@ -184,7 +185,7 @@ class SignIn extends StatelessWidget {
                           backgroundColor: const Color(0xffD9372B),
                           assetImage: AppAssets.gmailIcon,
                           leadingTextStyle: const TextStyle(
-                            color: Color(0xfffFFFFF),
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -197,40 +198,16 @@ class SignIn extends StatelessWidget {
                     onPressed: () {},
                     buttonText: 'Sign in with Apple',
                     backgroundColor: const Color(0xff000000),
-                    color: const Color(0xffFFFFFF),
+                    color: Colors.white,
                     verticalPadding: 12,
                     assetImage: AppAssets.appleIcon,
-                    leadingTextStyle: const TextStyle(color: Color(0xffFFFFFF)),
+                    leadingTextStyle: const TextStyle(color: Colors.white),
                   ),
                   const SizedBox(
                     height: 25,
                   ),
-                  Center(
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Image.asset(
-                          AppAssets.fingerPrintIcon,
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        const AppRichText(
-                          leadingText: "Login with ",
-                          trailingText: 'Touch ID',
-                          leadingTextStyle: TextStyle(
-                            color: Color(0xff757576),
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                          ),
-                          trailingTextStyle: TextStyle(
-                            color: Color(0xff2C2A26),
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
-                    ),
+                  const Center(
+                    child: LoginWithBiometric(),
                   ),
                 ],
               ),
