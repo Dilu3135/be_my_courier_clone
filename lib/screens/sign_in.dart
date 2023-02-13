@@ -2,12 +2,13 @@ import 'package:be_my_courier/core/utils/app_colors.dart';
 import 'package:be_my_courier/screens/sign_up.dart';
 import 'package:be_my_courier/core/utils/app_assets.dart';
 import 'package:be_my_courier/core/utils/app_text_styles.dart';
+import 'package:be_my_courier/widgets/account_confirmation.dart';
 import 'package:be_my_courier/widgets/app_button.dart';
 import 'package:be_my_courier/widgets/app_gradient_button.dart';
 import 'package:be_my_courier/widgets/app_text_field.dart';
-import 'package:be_my_courier/widgets/rich_text.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/app_bar.dart';
 import '../widgets/login_with_biometric.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -25,21 +26,9 @@ class SignInScreen extends StatelessWidget {
       // =======================================================================
       // App bar
       // =======================================================================
-      appBar: AppBar(
-        title: const AppRichText(
-          leadingText: 'Welcome to ',
-          trailingText: 'BemyCourier',
-          leadingTextStyle: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w600,
-            color: Colors.black,
-          ),
-          trailingTextStyle: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w600,
-            color: Colors.blue,
-          ),
-        ),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: AuthenticationAppBar(),
       ),
       body: Stack(
         fit: StackFit.expand,
@@ -62,31 +51,11 @@ class SignInScreen extends StatelessWidget {
                   const SizedBox(
                     height: 5,
                   ),
-                  const AppRichText(
-                    leadingText: "Don't have an account? ",
-                    trailingText: 'Sign IN',
-                    leadingTextStyle: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 12,
-                    ),
-                    trailingTextStyle: TextStyle(
-                      color: AppColors.kRedColor,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 12,
-                    ),
-                  ),
+                  const AccountComfirmation(),
                   const SizedBox(
                     height: 40,
                   ),
-                  const Text(
-                    'Email Address',
-                    style: TextStyle(
-                      color: Color(0xff2C2C2C),
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
+                  AppTextStyles.kTitleEmail,
                   const SizedBox(
                     height: 10,
                   ),
@@ -97,14 +66,7 @@ class SignInScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  const Text(
-                    'Password',
-                    style: TextStyle(
-                      color: Color(0xff2C2C2C),
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
+                  AppTextStyles.kTitlePassword,
                   const SizedBox(
                     height: 10,
                   ),
@@ -116,16 +78,9 @@ class SignInScreen extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  const Align(
+                  Align(
                     alignment: Alignment.centerRight,
-                    child: Text(
-                      'Forget Password?',
-                      style: TextStyle(
-                        color: Color(0xff1669D3),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
+                    child: AppTextStyles.kForgetTitle,
                   ),
                   const SizedBox(
                     height: 20,
@@ -152,11 +107,8 @@ class SignInScreen extends StatelessWidget {
                   const SizedBox(
                     height: 30,
                   ),
-                  const Center(
-                    child: Text(
-                      'or Login with',
-                      style: AppTextStyles.kFont12ptGrey,
-                    ),
+                  Center(
+                    child: AppTextStyles.kForgetTitle,
                   ),
                   const SizedBox(
                     height: 7,
@@ -167,7 +119,7 @@ class SignInScreen extends StatelessWidget {
                         child: AppSimpleButton(
                           onPressed: () {},
                           buttonText: 'Facebook',
-                          backgroundColor: const Color(0xff4460A0),
+                          backgroundColor: AppColors.kblueFacebook,
                           verticalPadding: 15,
                           assetImage: AppAssets.facebooklIcon,
                           leadingTextStyle:
@@ -182,7 +134,7 @@ class SignInScreen extends StatelessWidget {
                           onPressed: () {},
                           buttonText: 'Google',
                           verticalPadding: 15.0,
-                          backgroundColor: const Color(0xffD9372B),
+                          backgroundColor: AppColors.kRedColor,
                           assetImage: AppAssets.gmailIcon,
                           leadingTextStyle: const TextStyle(
                             color: Colors.white,
@@ -197,7 +149,7 @@ class SignInScreen extends StatelessWidget {
                   AppSimpleButton(
                     onPressed: () {},
                     buttonText: 'Sign in with Apple',
-                    backgroundColor: const Color(0xff000000),
+                    backgroundColor: AppColors.kBlackColor,
                     color: Colors.white,
                     verticalPadding: 12,
                     assetImage: AppAssets.appleIcon,

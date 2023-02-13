@@ -8,15 +8,11 @@
 //   @override
 //   Widget build(BuildContext context) {
 //     return  Scaffold(
-//         appBar: AppBar(
-//         title:  const AppRichText(
-//           leadingText: 'Welcome to ',
-//           trailingText: 'BemyCourier',
-//           leadingTextStyle: TextStyle(
-//             fontSize: 18,
-//             fontWeight: FontWeight.w600,
-//             color: Colors.black,
-//           ),
+//        appBar: const PreferredSize(
+      //   preferredSize: Size.fromHeight(kToolbarHeight),
+      //   child: AuthenticationAppBar(),
+      // ),
+    
 //           trailingTextStyle: TextStyle(
 //             fontSize: 18,
 //             fontWeight: FontWeight.w600,

@@ -1,8 +1,10 @@
 import 'package:be_my_courier/core/utils/app_assets.dart';
 import 'package:be_my_courier/widgets/app_gradient_button.dart';
 import 'package:be_my_courier/widgets/app_text_field.dart';
-import 'package:be_my_courier/widgets/rich_text.dart';
+
 import 'package:flutter/material.dart';
+
+import '../widgets/app_bar.dart';
 
 class UserAddressScreen extends StatelessWidget {
   const UserAddressScreen({super.key});
@@ -16,22 +18,11 @@ class UserAddressScreen extends StatelessWidget {
       // =======================================================================
       // App bar
       // =======================================================================
-      appBar: AppBar(
-        title: const AppRichText(
-          leadingText: 'Welcome to ',
-          trailingText: 'BemyCourier',
-          leadingTextStyle: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w600,
-            color: Colors.black,
-          ),
-          trailingTextStyle: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w600,
-            color: Colors.blue,
-          ),
-        ),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: AuthenticationAppBar(),
       ),
+
       body: Stack(
         fit: StackFit.expand,
         children: [

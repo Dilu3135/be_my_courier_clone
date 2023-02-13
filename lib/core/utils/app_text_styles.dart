@@ -23,4 +23,53 @@ class AppTextStyles {
       fontWeight: FontWeight.w700,
     ),
   );
+
+  static Text kTitleEmail = const Text(
+    'Email Address',
+    style: TextStyle(
+      color: Color(0xff2C2C2C),
+      fontSize: 12,
+      fontWeight: FontWeight.w700,
+    ),
+  );
+  static Text kTitlePassword = const Text(
+    'Password',
+    style: TextStyle(
+      color: Color(0xff2C2C2C),
+      fontSize: 12,
+      fontWeight: FontWeight.w700,
+    ),
+  );
+
+  static Text kForgetTitle = const Text(
+    'Forget Password?',
+    style: TextStyle(
+      color: Color(0xff1669D3),
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+    ),
+  );
+
+  static Text kSignUpButton = const Text(
+    'or Sign up with',
+    style: AppTextStyles.kFont12ptGrey,
+  );
+
+  static Text kUserName = const Text(
+    'Name',
+    style: TextStyle(
+      color: Color(0xff2C2C2C),
+      fontSize: 12,
+      fontWeight: FontWeight.w700,
+    ),
+  );
+
+  static Text kConfirmPassword = const Text(
+    'Confirm Password',
+    style: TextStyle(
+      color: Color(0xff2C2C2C),
+      fontSize: 12,
+      fontWeight: FontWeight.w700,
+    ),
+  );
 }
