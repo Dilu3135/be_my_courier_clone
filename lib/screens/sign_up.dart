@@ -51,7 +51,14 @@ class SignUpScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AppTextStyles.kFont12ptAmberleading,
+                  const Text(
+                    'Sign Up',
+                    style: TextStyle(
+                      color: Color(0xffF5A825),
+                      fontSize: 29,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
                   const SizedBox(
                     height: 5,
                   ),
@@ -59,7 +66,10 @@ class SignUpScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  AppTextStyles.kUserName,
+                  Text(
+                    'Name',
+                    style: AppTextStyles.normalTextTitle,
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
@@ -70,7 +80,10 @@ class SignUpScreen extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  AppTextStyles.kTitleEmail,
+                  Text(
+                    'Email Address',
+                    style: AppTextStyles.normalTextTitle,
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
@@ -81,7 +94,10 @@ class SignUpScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  AppTextStyles.kTitleEmail,
+                  Text(
+                    'Email Address',
+                    style: AppTextStyles.normalTextTitle,
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
@@ -92,7 +108,10 @@ class SignUpScreen extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  AppTextStyles.kConfirmPassword,
+                  Text(
+                    'Confirm Password',
+                    style: AppTextStyles.normalTextTitle,
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
@@ -100,9 +119,16 @@ class SignUpScreen extends StatelessWidget {
                       hinttext: 'Password',
                       isPasword: true,
                       keyboardType: TextInputType.visiblePassword),
-                  Align(
+                  const Align(
                     alignment: Alignment.centerRight,
-                    child: AppTextStyles.kForgetTitle,
+                    child: Text(
+                      'Forget Password?',
+                      style: TextStyle(
+                        color: Color(0xff1669D3),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     height: 20,
@@ -124,8 +150,11 @@ class SignUpScreen extends StatelessWidget {
                   const SizedBox(
                     height: 30,
                   ),
-                  Center(
-                    child: AppTextStyles.kSignUpButton,
+                  const Center(
+                    child: Text(
+                      'or Sign up with',
+                      style: AppTextStyles.kFont12ptGrey,
+                    ),
                   ),
                   const SizedBox(
                     height: 7,

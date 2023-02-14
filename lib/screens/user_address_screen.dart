@@ -42,7 +42,14 @@ class UserAddressScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  AppTextStyles.kAddress,
+                  const Text(
+                    'Street Address',
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black,
+                        fontFamily: 'Poppins-Medium.ttf'),
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
@@ -97,7 +104,14 @@ class UserAddressScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  AppTextStyles.kPhoneNum,
+                  const Text(
+                    'Phone Number',
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black,
+                        fontFamily: 'Poppins-Medium.ttf'),
+                  ),
                   const SizedBox(
                     height: 10,
                   ),

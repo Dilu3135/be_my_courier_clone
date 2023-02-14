@@ -12,7 +12,7 @@ import '../widgets/login_with_biometric.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
- 
+
   // ===========================================================================
   // Route
   // ===========================================================================
@@ -52,7 +52,10 @@ class SignInScreen extends StatelessWidget {
                   // ===========================================================
                   // Heading
                   // ===========================================================
-                  AppTextStyles.kFont12ptAmber,
+                  Text(
+                    'Sign In',
+                    style: AppTextStyles.kSignIn,
+                  ),
                   const SizedBox(
                     height: 5,
                   ),
@@ -66,7 +69,10 @@ class SignInScreen extends StatelessWidget {
                   // ===========================================================
                   // Email
                   // ===========================================================
-                  AppTextStyles.kTitleEmail,
+                  Text(
+                    'Email Address',
+                    style: AppTextStyles.normalTextTitle,
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
@@ -80,7 +86,10 @@ class SignInScreen extends StatelessWidget {
                   // ===========================================================
                   // Password
                   // ===========================================================
-                  AppTextStyles.kTitlePassword,
+                  Text(
+                    'Password',
+                    style: AppTextStyles.normalTextTitle,
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
@@ -92,9 +101,16 @@ class SignInScreen extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  Align(
+                  const Align(
                     alignment: Alignment.centerRight,
-                    child: AppTextStyles.kForgetTitle,
+                    child: Text(
+                      'Forget Password?',
+                      style: TextStyle(
+                        color: Color(0xff1669D3),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     height: 20,
@@ -122,9 +138,16 @@ class SignInScreen extends StatelessWidget {
                   // ===========================================================
                   // Forget Password
                   // ===========================================================
-                  Center(
+                  const Center(
                     // Forget title
-                    child: AppTextStyles.kForgetTitle,
+                    child: Text(
+                      'Forget Password?',
+                      style: TextStyle(
+                        color: Color(0xff1669D3),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     height: 7,
