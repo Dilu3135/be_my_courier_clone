@@ -4,12 +4,24 @@ import 'package:be_my_courier/core/utils/app_text_styles.dart';
 import 'package:be_my_courier/widgets/app_gradient_button.dart';
 import 'package:be_my_courier/widgets/app_text_field.dart';
 import 'package:flutter/material.dart';
+import '../controllers/authentication_controller.dart';
 import '../widgets/app_bar.dart';
+import 'home_screen.dart';
 
-class UserAddressScreen extends StatelessWidget {
+class UserAddressScreen extends StatefulWidget {
   const UserAddressScreen({super.key});
 
   static const String route = '/user-address';
+
+  @override
+  State<UserAddressScreen> createState() => _UserAddressScreenState();
+}
+
+class _UserAddressScreenState extends State<UserAddressScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -123,7 +135,7 @@ class UserAddressScreen extends StatelessWidget {
                     height: 30,
                   ),
                   AppGradientButton(
-                    onPressed: () {},
+                    onPressed: signupUser,
                     gradient: AppColors.appGradient,
                     leadingTextStyle: AppTextStyles.kAppButton,
                     leadingtext: 'Sign Up',
@@ -135,5 +147,22 @@ class UserAddressScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void signupUser() async {
+    final Map<String, dynamic> data =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    AuthController authController = AuthController();
+    bool isSignupIn = await authController.signupUser(
+      email: data["Email"],
+      password: data["Password"],
+      name: 'Dilawar',
+    );
+    if (isSignupIn && mounted) {
+      Navigator.pushNamed(
+        context,
+        HomeScreen.route,
+      );
+    }
   }
 }

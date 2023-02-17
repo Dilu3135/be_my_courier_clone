@@ -1,3 +1,4 @@
+import 'package:be_my_courier/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../screens/sign_in.dart';
@@ -10,12 +11,13 @@ class AppRouter {
 // =============================================================================
 // Splash Screen Routes
 // =============================================================================
-    SplashScreen.route: (context) => const SplashScreen(),
+    SplashScreen.route: (_) => const SplashScreen(),
     // =========================================================================
     // Authentication Routes
     // =========================================================================
-    SignInScreen.route: (context) => const SignInScreen(),
-    SignUpScreen.route: (context) => const SignUpScreen(),
-    UserAddressScreen.route: (context) => const UserAddressScreen(),
+    SignInScreen.route: (_) => const SignInScreen(),
+    SignUpScreen.route: (_) => const SignUpScreen(),
+    UserAddressScreen.route: (_) => const UserAddressScreen(),
+    HomeScreen.route: (_) => const HomeScreen(),
   };
 }

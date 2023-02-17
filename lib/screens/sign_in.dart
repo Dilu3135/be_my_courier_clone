@@ -1,5 +1,7 @@
+import 'package:be_my_courier/controllers/authentication_controller.dart';
 import 'package:be_my_courier/core/utils/app_colors.dart';
-import 'package:be_my_courier/screens/sign_up.dart';
+import 'package:be_my_courier/screens/home_screen.dart';
+
 import 'package:be_my_courier/core/utils/app_assets.dart';
 import 'package:be_my_courier/core/utils/app_text_styles.dart';
 import 'package:be_my_courier/widgets/account_confirmation.dart';
@@ -10,7 +12,7 @@ import 'package:flutter/material.dart';
 import '../widgets/app_bar.dart';
 import '../widgets/login_with_biometric.dart';
 
-class SignInScreen extends StatelessWidget {
+class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
 
   // ===========================================================================
@@ -18,9 +20,28 @@ class SignInScreen extends StatelessWidget {
   // ===========================================================================
   static const String route = '/signin';
 
-  // ===========================================================================
-  // Build
-  // ===========================================================================
+  @override
+  State<SignInScreen> createState() => _SignInScreenState();
+}
+
+class _SignInScreenState extends State<SignInScreen> {
+  late final TextEditingController emailController;
+  late final TextEditingController passwordController;
+
+  @override
+  void initState() {
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,8 +97,9 @@ class SignInScreen extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  const AppTextField(
+                  AppTextField(
                     hinttext: 'Email',
+                    textEditingController: emailController,
                     keyboardType: TextInputType.emailAddress,
                   ),
                   const SizedBox(
@@ -93,8 +115,9 @@ class SignInScreen extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  const AppTextField(
+                  AppTextField(
                     hinttext: 'Password',
+                    textEditingController: passwordController,
                     isPasword: true,
                     keyboardType: TextInputType.visiblePassword,
                   ),
@@ -121,9 +144,7 @@ class SignInScreen extends StatelessWidget {
                   Center(
                     child: AppGradientButton(
                       gradient: AppColors.appGradient,
-                      onPressed: () {
-                        Navigator.pushNamed(context, SignUpScreen.route);
-                      },
+                      onPressed: loginUser,
                       leadingTextStyle: const TextStyle(
                         color: Colors.black,
                         fontSize: 16,
@@ -169,5 +190,19 @@ class SignInScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void loginUser() async {
+    AuthController authController = AuthController();
+    bool isLoggedIn = await authController.loginUser(
+      email: emailController.text,
+      password: passwordController.text,
+    );
+    if (isLoggedIn && mounted) {
+      Navigator.pushNamed(
+        context,
+        HomeScreen.route,
+      );
+    }
   }
 }

@@ -2,8 +2,11 @@ import 'package:be_my_courier/core/app_router.dart';
 import 'package:be_my_courier/core/app_theme.dart';
 import 'package:be_my_courier/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

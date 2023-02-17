@@ -1,30 +1,12 @@
-// import 'package:be_my_courier/widgets/rich_text.dart';
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
-// class HomeScreen extends StatelessWidget {
-//   const HomeScreen({super.key});
+  static const String route = 'home';
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return  Scaffold(
-//        appBar: const PreferredSize(
-      //   preferredSize: Size.fromHeight(kToolbarHeight),
-      //   child: AuthenticationAppBar(),
-      // ),
-    
-//           trailingTextStyle: TextStyle(
-//             fontSize: 18,
-//             fontWeight: FontWeight.w600,
-//             color: Colors.blue,
-//           ),
-//         ),
-//       ),
-
-//       body: Container(child:  ,)
-
-
-
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold();
+  }
+}

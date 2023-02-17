@@ -7,12 +7,14 @@ class AppTextField extends StatefulWidget {
     this.title,
     this.isPasword = false,
     required this.keyboardType,
+    this.textEditingController,
   }) : super(key: key);
 
   final String hinttext;
   final String? title;
   final bool isPasword;
   final TextInputType keyboardType;
+  final TextEditingController? textEditingController;
 
   @override
   State<AppTextField> createState() => _AppTextFieldState();
@@ -42,6 +44,7 @@ class _AppTextFieldState extends State<AppTextField> {
         TextField(
           obscureText: widget.isPasword ? obscureText : false,
           keyboardType: widget.keyboardType,
+          controller: widget.textEditingController,
           style: const TextStyle(
               color: Colors.black, fontSize: 14, fontWeight: FontWeight.w700),
           decoration: InputDecoration(

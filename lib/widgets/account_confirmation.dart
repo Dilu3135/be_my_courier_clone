@@ -1,3 +1,4 @@
+import 'package:be_my_courier/screens/sign_up.dart';
 import 'package:be_my_courier/widgets/rich_text.dart';
 import 'package:flutter/material.dart';
 
@@ -8,15 +9,18 @@ class AccountComfirmation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AppRichText(
+    return AppRichText(
       leadingText: "Don't have an account? ",
       trailingText: 'Sign IN',
-      leadingTextStyle: TextStyle(
+      onTap: () {
+        Navigator.pushNamed(context, SignUpScreen.route);
+      },
+      leadingTextStyle: const TextStyle(
         color: Colors.black,
         fontWeight: FontWeight.w400,
         fontSize: 12,
       ),
-      trailingTextStyle: TextStyle(
+      trailingTextStyle: const TextStyle(
         color: AppColors.kRedColor,
         fontWeight: FontWeight.w400,
         fontSize: 12,
