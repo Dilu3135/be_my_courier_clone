@@ -70,9 +70,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
           Padding(
               padding: const EdgeInsets.all(16.0),
               child: SingleChildScrollView(
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
                     const Text(
                       'Sign Up',
                       style: TextStyle(
@@ -156,65 +156,68 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     //   },
                     //   // Navigator.pushNamed(context, MaterialPageRoute(builder: (context) => VerifyPhoneNumberScreen())),
                     // child: Text("Generate OTP"),
+                  
 
-                    AppTextField(
-                        hinttext: 'Password',
-                        isPasword: true,
-                        textEditingController: confirmPasswordController,
-                        keyboardType: TextInputType.visiblePassword),
-                    const Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        'Forget Password?',
-                        style: TextStyle(
-                          color: Color(0xff1669D3),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
+                AppTextField(
+                    hinttext: 'Password',
+                    isPasword: true,
+                    textEditingController: confirmPasswordController,
+                    keyboardType: TextInputType.visiblePassword),
+                const Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    'Forget Password?',
+                    style: TextStyle(
+                      color: Color(0xff1669D3),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
                     ),
-                    const SizedBox(
-                      height: 20,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Center(
+                  child: AppGradientButton(
+                    onPressed: () {
+                      Map<String, dynamic> data = {
+                        'Email': emailController.text,
+                        'Password': passwordController.text,
+                        'Confirm': confirmPasswordController.text,
+                      };
+                      Navigator.pushNamed(context, UserAddressScreen.route,
+                          arguments: data);
+                    },
+                    gradient: AppColors.appGradient,
+                    leadingTextStyle: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
                     ),
-                    Center(
-                      child: AppGradientButton(
-                        onPressed: () {
-                          Map<String, dynamic> data = {
-                            'Email': emailController.text,
-                            'Password': passwordController.text,
-                            'Confirm': confirmPasswordController.text,
-                          };
-                          Navigator.pushNamed(context, UserAddressScreen.route,
-                              arguments: data);
-                        },
-                        gradient: AppColors.appGradient,
-                        leadingTextStyle: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                        ),
-                        leadingtext: 'NEXT',
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    const Center(
-                      child: Text(
-                        'or Sign up with',
-                        style: AppTextStyles.kFont12ptGrey,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 7,
-                    ),
-                    const SocialLoginColumn(),
-                    const Center(
-                      child: LoginWithBiometric(),
-                    ),
-                  ])))
-        ],
-      ),
-    );
+                    leadingtext: 'NEXT',
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                const Center(
+                  child: Text(
+                    'or Sign up with',
+                    style: AppTextStyles.kFont12ptGrey,
+                  ),
+                ),
+                const SizedBox(
+                  height: 7,
+                ),
+                const SocialLoginColumn(),
+                const Center(
+                  child: LoginWithBiometric(),
+                ),
+              ]))
+      ) ],
+                ),
+      
+      );
+   
   }
 }

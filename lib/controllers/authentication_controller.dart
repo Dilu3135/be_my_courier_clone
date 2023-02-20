@@ -32,15 +32,52 @@ class AuthController {
   }
 
   Future<bool> signupUser(
-      {required String email, required String password, required name}) async {
+      {required String email,
+      required String password,
+      required name,
+      required}) async {
     try {
       await firebaseAuth
-          .createUserWithEmailAndPassword(email: email, password: password)
+          .createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      )
           .then((auth) {
         user = auth.user;
       });
       if (user != null) {
-        addUser(email, name, user!.uid);
+        // addUser(email, name, user!.uid);
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      log(e.toString());
+      return false;
+    }
+  }
+
+  Future<bool> createUser(
+      {required String email,
+      required String password,
+      required name,
+      required address,
+      required state,
+      required country,
+      required zip,
+      required city,
+      required}) async {
+    try {
+      await firebaseAuth
+          .createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      )
+          .then((auth) {
+        user = auth.user;
+      });
+      if (user != null) {
+        addUser(email, name, user!.uid, address, state, zip, city, country);
         return true;
       } else {
         return false;
@@ -82,10 +119,44 @@ class AuthController {
     }
   }
 
-  void addUser(String email, String name, String userId) async {
-    await FirebaseFirestore.instance
-        .collection('users')
-        .doc(userId)
-        .set({'email': email, 'name': name});
+  void addUser(
+    String email,
+    String name,
+    String userId,
+    String address,
+    String state,
+    String zip,
+    String city,
+    String country,
+  ) async {
+    await FirebaseFirestore.instance.collection('users').doc(userId).set({
+      'email': email,
+      'name': name,
+      'address': address,
+      'zip': zip,
+      'state': state,
+      'country': country,
+      'city': city,
+    });
+  }
+
+  Future<bool> userAddress(
+      {required String email, required String password, required name}) async {
+    try {
+      await firebaseAuth
+          .createUserWithEmailAndPassword(email: email, password: password)
+          .then((auth) {
+        user = auth.user;
+      });
+      if (user != null) {
+        // addUser(email, name, user!.uid);
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      log(e.toString());
+      return false;
+    }
   }
 }

@@ -3,6 +3,7 @@ import 'package:be_my_courier/core/utils/app_colors.dart';
 import 'package:be_my_courier/core/utils/app_text_styles.dart';
 import 'package:be_my_courier/widgets/app_gradient_button.dart';
 import 'package:be_my_courier/widgets/app_text_field.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../controllers/authentication_controller.dart';
 import '../widgets/app_bar.dart';
@@ -18,9 +19,30 @@ class UserAddressScreen extends StatefulWidget {
 }
 
 class _UserAddressScreenState extends State<UserAddressScreen> {
+  late final TextEditingController addressController;
+  late final TextEditingController cityController;
+  late final TextEditingController stateController;
+  late final TextEditingController zipController;
+  late final TextEditingController countryController;
+
   @override
   void initState() {
+    addressController = TextEditingController();
+    cityController = TextEditingController();
+    stateController = TextEditingController();
+    zipController = TextEditingController();
+    countryController = TextEditingController();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    addressController.dispose();
+    stateController.dispose();
+    zipController.dispose();
+    countryController.dispose();
+    cityController.dispose();
+    super.dispose();
   }
 
   @override
@@ -65,28 +87,31 @@ class _UserAddressScreenState extends State<UserAddressScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  const AppTextField(
+                  AppTextField(
                       hinttext: 'Street Address',
                       isPasword: false,
+                      textEditingController: addressController,
                       keyboardType: TextInputType.text),
                   const SizedBox(
                     height: 10,
                   ),
                   Row(
-                    children: const [
+                    children: [
                       Expanded(
                         child: AppTextField(
                             hinttext: 'City',
                             isPasword: false,
+                            textEditingController: cityController,
                             keyboardType: TextInputType.text),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
                       Expanded(
                         child: AppTextField(
                             hinttext: 'State/Province',
                             isPasword: false,
+                            textEditingController: stateController,
                             keyboardType: TextInputType.text),
                       ),
                     ],
@@ -95,20 +120,22 @@ class _UserAddressScreenState extends State<UserAddressScreen> {
                     height: 20,
                   ),
                   Row(
-                    children: const [
+                    children: [
                       Expanded(
                         child: AppTextField(
                             hinttext: 'Zip Code',
                             isPasword: false,
+                            textEditingController: zipController,
                             keyboardType: TextInputType.text),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
                       Expanded(
                         child: AppTextField(
                             hinttext: 'Country',
                             isPasword: false,
+                            textEditingController: countryController,
                             keyboardType: TextInputType.text),
                       ),
                     ],
@@ -153,12 +180,18 @@ class _UserAddressScreenState extends State<UserAddressScreen> {
     final Map<String, dynamic> data =
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     AuthController authController = AuthController();
-    bool isSignupIn = await authController.signupUser(
+    bool isSignup = await authController.createUser(
       email: data["Email"],
       password: data["Password"],
       name: 'Dilawar',
+      address: addressController.text,
+      state: stateController.text,
+      country: countryController.text,
+      zip: zipController.text,
+      city: cityController.text,
     );
-    if (isSignupIn && mounted) {
+
+    if (isSignup && mounted) {
       Navigator.pushNamed(
         context,
         HomeScreen.route,
