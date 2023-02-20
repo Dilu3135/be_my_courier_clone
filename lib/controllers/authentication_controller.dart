@@ -57,16 +57,16 @@ class AuthController {
     }
   }
 
-  Future<bool> createUser({
-    required String email,
-    required String password,
-    required name,
-    required address,
-    required state,
-    required country,
-    required zip,
-    required city,
-  }) async {
+  Future<bool> createUser(
+      {required String email,
+      required String password,
+      required name,
+      required address,
+      required state,
+      required country,
+      required zip,
+      required city,
+      required}) async {
     try {
       await firebaseAuth
           .createUserWithEmailAndPassword(
@@ -77,15 +77,7 @@ class AuthController {
         user = auth.user;
       });
       if (user != null) {
-        addUser(
-            email: email,
-            name: name,
-            userId: user!.uid,
-            address: address,
-            state: state,
-            zip: zip,
-            city: city,
-            country: country);
+        addUser(email, name, user!.uid, address, state, zip, city, country);
         return true;
       } else {
         return false;
@@ -127,16 +119,16 @@ class AuthController {
     }
   }
 
-  void addUser({
-    required String email,
-    required String name,
-    required String userId,
-    required String address,
-    required String state,
-    required String zip,
-    required String city,
-    required String country,
-  }) async {
+  void addUser(
+    String email,
+    String name,
+    String userId,
+    String address,
+    String state,
+    String zip,
+    String city,
+    String country,
+  ) async {
     await FirebaseFirestore.instance.collection('users').doc(userId).set({
       'email': email,
       'name': name,

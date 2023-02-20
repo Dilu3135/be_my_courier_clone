@@ -5,7 +5,6 @@ import 'package:be_my_courier/core/utils/app_assets.dart';
 import 'package:be_my_courier/core/utils/app_text_styles.dart';
 import 'package:be_my_courier/widgets/app_gradient_button.dart';
 import 'package:be_my_courier/widgets/app_text_field.dart';
-import 'package:be_my_courier/widgets/verify_phone_number_screen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -26,12 +25,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
   late final TextEditingController emailController;
   late final TextEditingController passwordController;
   late final TextEditingController confirmPasswordController;
+  late final TextEditingController nameController;
   // ===========================================================================
   @override
   void initState() {
     emailController = TextEditingController();
     passwordController = TextEditingController();
     confirmPasswordController = TextEditingController();
+    nameController = TextEditingController();
     super.initState();
   }
 
@@ -40,6 +41,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     emailController.dispose();
     passwordController.dispose();
     confirmPasswordController.dispose();
+    nameController.dispose();
     super.dispose();
   }
 
@@ -96,8 +98,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  const AppTextField(
+                  AppTextField(
                       hinttext: 'User Name',
+                      textEditingController: nameController,
                       isPasword: false,
                       keyboardType: TextInputType.text),
                   const SizedBox(
@@ -218,6 +221,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     final SignUpArguments signUpArguments = SignUpArguments(
       email: emailController.text,
       password: passwordController.text,
+      name: nameController.text,
     );
     Navigator.pushNamed(context, UserAddressScreen.route,
         arguments: signUpArguments);

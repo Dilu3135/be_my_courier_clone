@@ -3,7 +3,6 @@ import 'package:be_my_courier/core/utils/app_colors.dart';
 import 'package:be_my_courier/core/utils/app_text_styles.dart';
 import 'package:be_my_courier/widgets/app_gradient_button.dart';
 import 'package:be_my_courier/widgets/app_text_field.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../controllers/authentication_controller.dart';
 import '../core/arguments/signup_arguments.dart';
@@ -184,7 +183,7 @@ class _UserAddressScreenState extends State<UserAddressScreen> {
     bool isSignup = await authController.createUser(
       email: data.email,
       password: data.password,
-      name: 'Dilawar',
+      name: data.name,
       address: addressController.text,
       state: stateController.text,
       country: countryController.text,
