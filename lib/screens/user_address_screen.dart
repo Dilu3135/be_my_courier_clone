@@ -6,6 +6,7 @@ import 'package:be_my_courier/widgets/app_text_field.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../controllers/authentication_controller.dart';
+import '../core/arguments/signup_arguments.dart';
 import '../widgets/app_bar.dart';
 import 'home_screen.dart';
 
@@ -177,12 +178,12 @@ class _UserAddressScreenState extends State<UserAddressScreen> {
   }
 
   void signupUser() async {
-    final Map<String, dynamic> data =
-        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final SignUpArguments data =
+        ModalRoute.of(context)!.settings.arguments as SignUpArguments;
     AuthController authController = AuthController();
     bool isSignup = await authController.createUser(
-      email: data["Email"],
-      password: data["Password"],
+      email: data.email,
+      password: data.password,
       name: 'Dilawar',
       address: addressController.text,
       state: stateController.text,
